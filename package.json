@@ -1,0 +1,58 @@
+{
+  "name": "word-counter",
+  "version": "1.0.0",
+  "description": "Simple website for counting words",
+  "main": "server.dev.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node build.script.js",
+    "dev": "vitreum --dev",
+    "start": "node server.dev.js",
+    "lint": "eslint --fix **/*.{js,jsx}",
+    "lint:dry": "eslint **/*.{js,jsx}"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stolksdorf/word-counter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stolksdorf/word-counter/issues"
+  },
+  "homepage": "https://github.com/stolksdorf/word-counter#readme",
+  "vitreum": {
+    "targets": [
+      "client/main/main.jsx"
+    ],
+    "paths": {
+      "build": "./docs"
+    },
+    "template": "./client/template.html.js"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-react"
+    ]
+  },
+  "eslintIgnore": [
+    "docs/*",
+    "node_modules/*"
+  ],
+  "dependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-react": "^7.0.0",
+    "classnames": "^2.2.6",
+    "create-react-class": "^15.6.3",
+    "express": "^4.16.3",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "vitreum": "^5.3.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.6.1",
+    "eslint-plugin-react": "^7.11.1"
+  }
+}

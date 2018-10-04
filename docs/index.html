@@ -1,0 +1,27 @@
+<!-- Doctype HTML5 -->
+
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<meta charset='utf-8'>
+		<meta name='viewport' content='width=device-width, initial-scale=1'>
+
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="//fonts.googleapis.com/css?family=Lato:400,300,600,700" rel="stylesheet" type="text/css">
+
+		<link rel='stylesheet' type='text/css' href='main/bundle.css' />
+	
+	</head>
+	<body><main id='vitreum-root'><div class="Main" data-reactroot="">Main Component Ready.</div></main></body>
+	<script>vitreum_props=undefined;</script>
+	<script src='libs.js'></script>
+	<script src='main/bundle.js'></script>
+	<script>
+		(function(){
+			require('react-dom').hydrate(
+				require('react').createElement(main, vitreum_props),
+				document.getElementById('vitreum-root')
+			);
+		})();
+	</script>
+</html>
