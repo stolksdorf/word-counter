@@ -2,7 +2,7 @@ const ReactDOMServer = require('react-dom/server');
 const React = require('react');
 const Headtags = require('vitreum/headtags.js');
 let cache = {};
-
+require('source-map-support/register');
 
 module.exports = (props, opts={})=>{
 	opts = Object.assign({render:true, cache:false}, opts);
@@ -10,7 +10,7 @@ module.exports = (props, opts={})=>{
 	const propsString = JSON.stringify(props);
 	if(opts.cache && cache[propsString]) return cache[propsString];
 	if(opts.render){
-		
+		delete require.cache[require.resolve('./bundle.js')];
 		global.vitreum_props = props;
 		const Element = require('./bundle.js');
 		if(!Object.keys(Element).length && typeof Element !== 'function'){

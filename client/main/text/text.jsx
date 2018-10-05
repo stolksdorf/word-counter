@@ -19,6 +19,7 @@ const Text = createClass({
 			<textarea
 				value={this.props.value}
 				onChange={this.update}
+				placeholder='temp placeholder'
 				ref={this.textarea} />
 			<div>{this.props.value + '\n'}</div>
 		</div>;

@@ -12,7 +12,14 @@ const Footer = createClass({
 	},
 	render(){
 		return <footer>
-			Footer Component Ready.
+			<div className='bg' />
+			<div className='container'>
+
+
+				<a href='https://github.com/stolksdorf/word-counter'>
+					<i className='fab fa-github' />
+				</a>
+			</div>
 		</footer>;
 	}
 });

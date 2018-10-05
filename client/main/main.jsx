@@ -33,10 +33,12 @@ const Main = createClass({
 	},
 	render(){
 		return <div className='Main'>
-			<Title>Word Counter</Title>
+			<Title>word.counter</Title>
 			<Favicon href={favicon} />
-			<Stats text={this.state.text} />
-			<Text value={this.state.text} onChange={this.update} />
+			<div className='container'>
+				<Stats text={this.state.text} />
+				<Text value={this.state.text} onChange={this.update} />
+			</div>
 
 			<Footer />
 		</div>;
