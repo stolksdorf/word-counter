@@ -6,17 +6,55 @@
 		<meta charset='utf-8'>
 		<meta name='viewport' content='width=device-width, initial-scale=1'>
 		<link rel='stylesheet' type='text/css' href='main/bundle.css' />
-	<title>Word Counter</title>
+	<title>word.counter</title>
 <link rel='shortcut icon' type='image/png' href='assets/main/favicon-sort-alpha-asc.ico' />
 	</head>
-	<body><main id='vitreum-root'><div class="Main" data-reactroot=""><div class="Stats"><div class="wordCount">5</div></div><div class="Text"><textarea>this is the default text</textarea><div>this is the default text
-</div></div><footer>Footer Component Ready.</footer></div></main></body>
+	<body><main id='vitreum-root'><div class="Main" data-reactroot=""><div class="container"><div class="Stats"><div class="wordCount">52</div></div><div class="Text"><textarea placeholder="temp placeholder">Type in here to get a live word count.
+
+It&#x27;s smart, so symbol separated words get counted properly
+
+people+cheating-by|using_symbols=to*split#words is 7 words
+
+
+But ASCII art or tables gets only counted by word
+
+| d4 | Result |
+---------------
+| 1  | Sock   |
+| 2  | Shoe   |
+| 3  | Pants  |
+| 4  | Hat    |
+
+is only 10 words
+
+
+</textarea><div>Type in here to get a live word count.
+
+It&#x27;s smart, so symbol separated words get counted properly
+
+people+cheating-by|using_symbols=to*split#words is 7 words
+
+
+But ASCII art or tables gets only counted by word
+
+| d4 | Result |
+---------------
+| 1  | Sock   |
+| 2  | Shoe   |
+| 3  | Pants  |
+| 4  | Hat    |
+
+is only 10 words
+
+
+
+</div></div></div><footer><div class="bg"></div><div class="container"><a href="https://github.com/stolksdorf/word-counter"><i class="fab fa-github"></i></a></div></footer></div></main></body>
 	<script>vitreum_props=undefined;</script>
 	<script src='libs.js'></script>
 	<script src='main/bundle.js'></script>
 	<script>
 		(function(){
-			require('react-dom').hydrate(
+			require('react-dom').render(
 				require('react').createElement(main, vitreum_props),
 				document.getElementById('vitreum-root')
 			);

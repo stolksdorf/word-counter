@@ -2,7 +2,7 @@
 .Text{
 	position   : relative;
 	min-height : 80vh;
-	font-size: 1.3em;
+	font-size  : 1.3em;
 	textarea, div{
 		.fontCode();
 		box-sizing : border-box;
@@ -10,17 +10,18 @@
 		padding    : 0;
 	}
 	textarea{
-		position    : absolute;
-		top         : 0px;
-		left        : 0px;
-		resize      : none;
-		height      : 100%;
-		width       : 100%;
-		font-size   : inherit;
-		font-weight : 400;
-		border      : none;
-		outline     : none;
-		background-color: transparent;
+		position         : absolute;
+		top              : 0px;
+		left             : 0px;
+		resize           : none;
+		overflow-y       : hidden;
+		height           : 100%;
+		width            : 100%;
+		background-color : transparent;
+		font-size        : inherit;
+		font-weight      : 400;
+		border           : none;
+		outline          : none;
 		&:focus{
 			border : none;
 		}
@@ -28,7 +29,7 @@
 	div{
 		visibility     : hidden;
 		word-wrap      : break-word;
-		white-space    : pre-line;
+		white-space    : pre-wrap;
 		pointer-events : none;
 	}
 }
