@@ -44,8 +44,6 @@ But ASCII art or tables are fine
 
 is only 10 words`;
 },{}],12:[function(require,module,exports){
-module.exports='/assets/main/favicon-sort-alpha-asc.ico';
-},{}],13:[function(require,module,exports){
 require('./footer.less');
 
 const React = require('react');
@@ -87,7 +85,7 @@ const Footer = createClass({
 
 });
 module.exports = Footer;
-},{"./footer.less":14,"classnames":undefined,"create-react-class":undefined,"react":undefined}],14:[function(require,module,exports){
+},{"./footer.less":13,"classnames":undefined,"create-react-class":undefined,"react":undefined}],13:[function(require,module,exports){
 arguments[4][1][0].apply(exports,arguments)
 },{"dup":1}],"C:\\Dropbox\\root\\Programming\\Javascript\\word-counter\\client\\main\\main.jsx":[function(require,module,exports){
 require('../basestyle');
@@ -103,11 +101,8 @@ const cx = require('classnames');
 const DefaultText = require('./default.text.js');
 
 const {
-  Title,
-  Favicon
+  Title
 } = require('vitreum/headtags');
-
-const favicon = require('./favicon-sort-alpha-asc.ico');
 
 const Stats = require('./stats/stats.jsx');
 
@@ -151,8 +146,8 @@ const Main = createClass({
   render() {
     return React.createElement("div", {
       className: "Main"
-    }, React.createElement(Title, null, "word.counter"), React.createElement(Favicon, {
-      href: favicon
+    }, React.createElement(Title, null, "word.counter"), React.createElement(Stats, {
+      text: this.state.text
     }), React.createElement("div", {
       className: "container"
     }, React.createElement(Stats, {
@@ -171,9 +166,57 @@ const Main = createClass({
 
 });
 module.exports = Main;
-},{"../basestyle":5,"./default.text.js":11,"./favicon-sort-alpha-asc.ico":12,"./footer/footer.jsx":13,"./main.less":15,"./stats/stats.jsx":16,"./text/text.jsx":18,"classnames":undefined,"create-react-class":undefined,"react":undefined,"vitreum/headtags":undefined}],15:[function(require,module,exports){
+},{"../basestyle":5,"./default.text.js":11,"./footer/footer.jsx":12,"./main.less":14,"./stats/stats.jsx":17,"./text/text.jsx":19,"classnames":undefined,"create-react-class":undefined,"react":undefined,"vitreum/headtags":undefined}],14:[function(require,module,exports){
 arguments[4][1][0].apply(exports,arguments)
-},{"dup":1}],16:[function(require,module,exports){
+},{"dup":1}],15:[function(require,module,exports){
+const React = require('react');
+
+const createClass = require('create-react-class');
+
+const {
+  Title,
+  Favicon
+} = require('vitreum/headtags');
+
+const favicon = require('./favicon-sort-alpha-asc.ico');
+
+const DynamicFavicon = createClass({
+  displayName: 'DynamicFavicon',
+
+  getDefaultProps() {
+    return {
+      wordCount: 0
+    };
+  },
+
+  componentDidMount() {
+    this.canvas = document.createElement('canvas');
+    this.ctx = this.canvas.getContext('2d');
+    this.canvas.height = this.canvas.width = 16;
+  },
+
+  getDataUrl() {
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    this.ctx.font = '15px bold "monospace"';
+    this.ctx.fillStyle = '#000';
+    this.ctx.fillText(this.props.wordCount, 0, 12);
+    return this.canvas.toDataURL('image/png');
+  },
+
+  render() {
+    if (!this.canvas) return React.createElement(Favicon, {
+      href: favicon
+    });
+    return React.createElement(Favicon, {
+      href: this.getDataUrl()
+    });
+  }
+
+});
+module.exports = DynamicFavicon;
+},{"./favicon-sort-alpha-asc.ico":16,"create-react-class":undefined,"react":undefined,"vitreum/headtags":undefined}],16:[function(require,module,exports){
+module.exports='/assets/main/stats/favicon-sort-alpha-asc.ico';
+},{}],17:[function(require,module,exports){
 require('./stats.less');
 
 const React = require('react');
@@ -181,6 +224,8 @@ const React = require('react');
 const createClass = require('create-react-class');
 
 const cx = require('classnames');
+
+const DynamicFavicon = require('./dynamicFavicon.jsx');
 
 const wordCountRegex = new RegExp(`[0-9]+[0-9,\.]*|[&0-9a-zA-Z\xC0-\xFF]+[-']?[0-9a-zA-Z\xC0-\xFF]*`, 'g');
 
@@ -196,18 +241,21 @@ const Stats = createClass({
   },
 
   render() {
+    const count = wordCount(this.props.text);
     return React.createElement("div", {
       className: "Stats"
-    }, React.createElement("div", {
+    }, React.createElement(DynamicFavicon, {
+      wordCount: count
+    }), React.createElement("div", {
       className: "wordCount"
-    }, wordCount(this.props.text)));
+    }, count));
   }
 
 });
 module.exports = Stats;
-},{"./stats.less":17,"classnames":undefined,"create-react-class":undefined,"react":undefined}],17:[function(require,module,exports){
+},{"./dynamicFavicon.jsx":15,"./stats.less":18,"classnames":undefined,"create-react-class":undefined,"react":undefined}],18:[function(require,module,exports){
 arguments[4][1][0].apply(exports,arguments)
-},{"dup":1}],18:[function(require,module,exports){
+},{"dup":1}],19:[function(require,module,exports){
 require('./text.less');
 
 const React = require('react');
@@ -243,7 +291,7 @@ const Text = createClass({
 
 });
 module.exports = Text;
-},{"./text.less":19,"classnames":undefined,"create-react-class":undefined,"react":undefined}],19:[function(require,module,exports){
+},{"./text.less":20,"classnames":undefined,"create-react-class":undefined,"react":undefined}],20:[function(require,module,exports){
 arguments[4][1][0].apply(exports,arguments)
 },{"dup":1}]},{},[])("C:\\Dropbox\\root\\Programming\\Javascript\\word-counter\\client\\main\\main.jsx")
 });

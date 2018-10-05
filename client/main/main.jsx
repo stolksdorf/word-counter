@@ -6,8 +6,7 @@ const cx          = require('classnames');
 
 const DefaultText = require('./default.text.js');
 
-const {Title, Favicon} = require('vitreum/headtags');
-const favicon = require('./favicon-sort-alpha-asc.ico');
+const {Title} = require('vitreum/headtags');
 
 const Stats = require('./stats/stats.jsx');
 const Footer = require('./footer/footer.jsx');
@@ -43,7 +42,8 @@ const Main = createClass({
 	render(){
 		return <div className='Main'>
 			<Title>word.counter</Title>
-			<Favicon href={favicon} />
+			<Stats text={this.state.text} />
+
 			<div className='container'>
 				<Stats text={this.state.text} />
 				<input
