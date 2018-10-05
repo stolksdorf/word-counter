@@ -1,0 +1,102 @@
+.createAnimation(@name, @duration : @defaultDuration, @easing : @defaultEasing, @frames){
+	-webkit-animation-name: @name;
+			animation-name: @name;
+	-webkit-animation-duration: @duration;
+			animation-duration: @duration;
+	-webkit-animation-timing-function: @easing;
+			animation-timing-function: @easing;
+	@-webkit-keyframes @name {@frames();}
+			@keyframes @name {@frames();}
+}
+
+.fadeIn(@duration : @defaultDuration, @easing : @defaultEasing){
+	.frames(){
+		0%   { opacity: 0; visibility: hidden ;}
+		1%   { opacity: 0; visibility: visible; }
+		100% { opacity: 1; visibility: visible; }
+	}
+	.createAnimation(fadeIn, @duration, @easing, {.frames()});
+}
+
+.fadeInDown(@duration : @defaultDuration, @easing : @defaultEasing){
+	.frames(){
+		0%   { opacity: 0; visibility: hidden ;.transform(translateY(20px));}
+		1%   { opacity: 0; visibility: visible; .transform(translateY(20px));}
+		100% { opacity: 1; visibility: visible; .transform(translateY(0px));}
+	}
+	.createAnimation(fadeInDown, @duration, @easing, {.frames()});
+}
+
+.fadeInTop(@duration : @defaultDuration, @easing : @defaultEasing){
+	.frames(){
+		0%   { opacity: 0; visibility: hidden ;.transform(translateY(-20px)); }
+		1%   { opacity: 0; visibility: visible; .transform(translateY(-20px)); }
+		100% { opacity: 1; visibility: visible; .transform(translateY(0px));}
+	}
+	.createAnimation(fadeInTop, @duration, @easing, {.frames()});
+}
+
+.fadeInLeft(@duration : @defaultDuration, @easing : @defaultEasing){
+	.frames(){
+		0%   { opacity: 0; visibility: hidden ;.transform(translateX(-20px));}
+		1%   { opacity: 0; visibility: visible; .transform(translateX(-20px));}
+		100% { opacity: 1; visibility: visible; .transform(translateX(0));}
+	}
+	.createAnimation(fadeInLeft, @duration, @easing, {.frames()});
+}
+
+.fadeInRight(@duration : @defaultDuration, @easing : @defaultEasing){
+	.frames(){
+		0%   { opacity: 0; visibility: hidden ;.transform(translateX(20px));}
+		1%   { opacity: 0; visibility: visible; .transform(translateX(20px));}
+		100% { opacity: 1; visibility: visible; .transform(translateX(0));}
+	}
+	.createAnimation(fadeInRight, @duration, @easing, {.frames()});
+}
+
+
+
+.fadeOut(@duration : @defaultDuration, @easing : @defaultEasing){
+	.frames(){
+		0%   { opacity : 1; visibility: visible;}
+		99%  { opacity : 0; visibility: visible;}
+		100% { opacity : 0; visibility: hidden;}
+	}
+	.createAnimation(fadeOut, @duration, @easing, {.frames()});
+}
+
+.fadeOutDown(@duration : @defaultDuration, @easing : @defaultEasing){
+	.frames(){
+		0%   { opacity : 1; visibility: visible; .transform(translateY(0));}
+		99%  { opacity : 0; visibility: visible; .transform(translateY(20px));}
+		100% { opacity : 0; visibility: hidden; .transform(translateY(20px));}
+	}
+	.createAnimation(fadeOutDown, @duration, @easing, {.frames()});
+}
+
+.fadeOutTop(@duration : @defaultDuration, @easing : @defaultEasing){
+	.frames(){
+		0%   { opacity : 1; visibility: visible; .transform(translateY(0)); }
+		99%  { opacity : 0; visibility: visible; .transform(translateY(-20px)); }
+		100% { opacity : 0; visibility: hidden; .transform(translateY(-20px)); }
+	}
+	.createAnimation(fadeOutTop, @duration, @easing, {.frames()});
+}
+
+.fadeOutLeft(@duration : @defaultDuration, @easing : @defaultEasing){
+	.frames(){
+		0%   { opacity : 1; visibility: visible; .transform(translateX(0));}
+		99%  { opacity : 0; visibility: visible; .transform(translateX(-20px));}
+		100% { opacity : 0; visibility: hidden; .transform(translateX(-20px));}
+	}
+	.createAnimation(fadeOutLeft, @duration, @easing, {.frames()});
+}
+
+.fadeOutRight(@duration : @defaultDuration, @easing : @defaultEasing){
+	.frames(){
+		0%   { opacity : 1; visibility: visible; .transform(translateX(0));}
+		99%  { opacity : 0; visibility: visible; .transform(translateX(20px));}
+		100% { opacity : 0; visibility: hidden; .transform(translateX(20px));}
+	}
+	.createAnimation(fadeOutRight, @duration, @easing, {.frames()});
+}

@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Bevan|Lato:400,900|Roboto+Mono:400,700');
+
+.textRendering() {
+	text-rendering          : optimizeLegibility;
+	-webkit-font-smoothing  : antialiased;
+	-moz-osx-font-smoothing : grayscale;
+}
+
+.fontRegular(){
+	.textRendering();
+	font-family : 'Lato', sans-serif;
+}
+.fontBold(){
+	.fontRegular();
+	font-weight : @fontBold;
+}
+.fontLight(){
+	.fontRegular();
+	font-weight : @fontLight;
+}
+.fontAccent(){
+	.textRendering();
+	font-family : 'Bevan', cursive;
+}
+.fontCode() {
+	.textRendering();
+	font-family : 'Roboto Mono', monospace;
+}
+
+@fontLight   : 300;
+@fontRegular : 400;
+@fontMedium  : 600;
+@fontBold    : 800;
+
+@fontSize8 : 60px;
+@fontSize7 : 48px;
+@fontSize6 : 36px;
+@fontSize5 : 30px;
+@fontSize4 : 22px;
+@fontSize3 : 20px;
+@fontSize2 : 18px;
+@fontSize1 : 17px;
+@fontSize0 : 15px;
+
+@lineHeight  : 1.1;
+@lineHeight1 : 1.25;
+@lineHeight2 : 1.45;
+@lineHeight3 : 1.75;
+@lineHeight4 : 2;
+@lineHeight5 : 2.25;

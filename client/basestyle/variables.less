@@ -1,0 +1,46 @@
+.fontRegular(){
+	.textRendering();
+	font-family : 'TT Commons', 'Helvetica', 'Arial', sans-serif;
+}
+
+.fontBold(){
+	.fontRegular();
+	font-weight : @fontBold;
+}
+
+.fontLight(){
+	.fontRegular();
+	font-weight : @fontLight;
+}
+
+.fontAccent(){
+	.textRendering();
+	font-family : 'Miller Text', serif;
+}
+
+.fontCode() {
+	.textRendering();
+	font-family : 'Inconsolata', monospace;
+}
+
+
+
+@responsive : ~"only screen and (max-width : 978px)";
+@mobile     : ~"only screen and (max-width : 600px)";
+@tablet     : ~"only screen and (min-width : 601px) and (max-width : 978px)";
+@desktop    : ~"only screen and (min-width : 979px)";
+
+// Static Navbar Height
+@navInitialHeight : 75px;
+@navMobileHeight  : 65px;
+
+// Logo Size
+@logoSize : 175px;
+
+// Block Margins
+@blockSpacing : 1.25rem;
+
+// Widths
+@maxWidth : 1440px;
+@minWidth : 320px;
+

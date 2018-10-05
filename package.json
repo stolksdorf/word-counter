@@ -1,7 +1,7 @@
 {
   "name": "word-counter",
   "version": "1.0.0",
-  "description": "Simple website for counting words",
+  "description": "Simple website for counting words ",
   "main": "server.dev.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

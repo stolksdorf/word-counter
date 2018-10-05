@@ -6,7 +6,8 @@ String.prototype.replaceAll = function (find, replace) {
 	return str.replace(new RegExp(find, 'g'), replace);
 };
 
-build().then(()=>{
+//build().then(()=>{
+build(null, {prod : true}).then(()=>{
 	const render = require('./docs/main/render.js');
 
 	fs.writeFileSync('./docs/index.html', render()

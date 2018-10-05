@@ -1,0 +1,40 @@
+@defaultDuration : 0.25s;
+@defaultEasing   : ease;
+.animateAll(@duration : @defaultDuration, @easing : @defaultEasing){
+	-webkit-transition: all @duration @easing;
+			transition: all @duration @easing;
+}
+.animate(@prop, @duration : @defaultDuration, @easing : @defaultEasing){
+	-webkit-transition: @prop @duration @easing;
+			transition: @prop @duration @easing;
+}
+.transition (@prop, @duration: @defaultDuration) {
+	-webkit-transition: @prop @duration, -webkit-transform @duration;
+			transition: @prop @duration, transform @duration;
+}
+.transform (@transform) {
+	-webkit-transform: @transform;
+			transform: @transform;
+}
+.delay(@delay){
+	-webkit-animation-delay:@delay;
+			animation-delay:@delay;
+	-webkit-transition-delay:@delay;
+			transition-delay:@delay;
+}
+.keep(){
+	-webkit-animation-fill-mode:forwards;
+			animation-fill-mode:forwards;
+}
+.sequentialDelay(@delayInc : 0.2s, @initialDelay : 0s){
+	&:nth-child(1){.delay(0*@delayInc + @initialDelay)}
+	&:nth-child(2){.delay(1*@delayInc + @initialDelay)}
+	&:nth-child(3){.delay(2*@delayInc + @initialDelay)}
+	&:nth-child(4){.delay(3*@delayInc + @initialDelay)}
+	&:nth-child(5){.delay(4*@delayInc + @initialDelay)}
+	&:nth-child(6){.delay(5*@delayInc + @initialDelay)}
+	&:nth-child(7){.delay(6*@delayInc + @initialDelay)}
+	&:nth-child(8){.delay(7*@delayInc + @initialDelay)}
+	&:nth-child(9){.delay(8*@delayInc + @initialDelay)}
+	&:nth-child(10){.delay(9*@delayInc + @initialDelay)}
+}
