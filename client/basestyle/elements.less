@@ -19,32 +19,30 @@ ol {
 	ol, ul { margin-top : 0px; }
 }
 ul {
-	padding-left : 2em;
+	padding-left : 1em;
 	list-style   : none;
 	li {
 		position    : relative;
 		white-space : normal;
+		line-height : 1.7em;
 		&:before {
-			.transform(translate(-200%, -5%));
-			content   : '\2022';
+			.transform(translate(-200%, -60%));
+			content   : '·';
 			position  : absolute;
+			left : 0;
+			top : 50%;
 			font-size : @fontSize4;
-			color     : @grey3;
 		}
 		> ul, ol { margin-left : 1em; }
 		ol, ul { margin-top : 0em; }
 	}
 }
 p {
-	font-size   : @fontSize1;
 	font-weight : @fontRegular;
-	color       : @copyGrey;
 	line-height : @lineHeight2;
 }
 small {
 	display     : inline-block;
-	font-size   : @fontSize1;
-	color       : @copyGrey;
 	line-height : @lineHeight1;
 }
 blockquote {
