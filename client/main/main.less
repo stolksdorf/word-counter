@@ -1,12 +1,25 @@
+
 .Main{
 	//background-image : require('./funky-lines.png');
-	background-color: @background;
-
+	background-color : @background;
 	.container{
-		padding: 3em 1em;
-		margin: 0 auto;
-		width : 100%;
-		max-width : 800px;
+		position  : relative;
+		width     : 100%;
 		min-width : @minWidth;
+		max-width : 800px;
+		margin    : 0 auto;
+		padding   : 0em 1em;
+	}
+	input.title{
+		.fontCode();
+		//width : 85%;
+		width            : 100%;
+		padding          : 0.5em 0em;
+		background-color : transparent;
+		font-size        : 2.5em;
+		font-weight      : 800;
+		text-overflow    : ellipsis;
+		border           : none;
+		outline          : none;
 	}
 }

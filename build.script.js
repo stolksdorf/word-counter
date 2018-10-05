@@ -17,7 +17,7 @@ build().then(()=>{
 		.replaceAll('/assets', 'assets')
 	);
 	fs.writeFileSync('./docs/main/bundle.css', fs.readFileSync('./docs/main/bundle.css', 'utf8')
-		.replaceAll('/assets', 'assets')
+		.replaceAll('/assets', '../assets')
 	);
 	console.log('Built index.html');
 });

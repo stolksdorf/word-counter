@@ -2,10 +2,10 @@ module.exports = `Type in here to get a live word count.
 
 It's smart, so symbol separated words get counted properly
 
-people+cheating-by|using_symbols=to*split#words is 7 words
+people+trying*to%cheat-by|using_symbols=to*split#words is 7 words
 
 
-But ASCII art or tables gets only counted by word
+But ASCII art or tables are fine
 
 | d4 | Result |
 ---------------
@@ -14,7 +14,4 @@ But ASCII art or tables gets only counted by word
 | 3  | Pants  |
 | 4  | Hat    |
 
-is only 10 words
-
-
-`;
+is only 10 words`;

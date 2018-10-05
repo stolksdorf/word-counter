@@ -30,10 +30,10 @@ module.exports = `Type in here to get a live word count.
 
 It's smart, so symbol separated words get counted properly
 
-people+cheating-by|using_symbols=to*split#words is 7 words
+people+trying*to%cheat-by|using_symbols=to*split#words is 7 words
 
 
-But ASCII art or tables gets only counted by word
+But ASCII art or tables are fine
 
 | d4 | Result |
 ---------------
@@ -42,10 +42,7 @@ But ASCII art or tables gets only counted by word
 | 3  | Pants  |
 | 4  | Hat    |
 
-is only 10 words
-
-
-`;
+is only 10 words`;
 },{}],12:[function(require,module,exports){
 module.exports='/assets/main/favicon-sort-alpha-asc.ico';
 },{}],13:[function(require,module,exports){
@@ -106,28 +103,37 @@ const Footer = require('./footer/footer.jsx');
 
 const Text = require('./text/text.jsx');
 
-const KEY = 'word-counter';
+const TEXT_KEY = 'word-counter-text';
+const TITLE_KEY = 'word-counter-title';
 const Main = createClass({
   displayName: 'Main',
 
   getInitialState() {
     return {
+      title: 'Your next mirco-rpg',
       text: DefaultText
     };
   },
 
   componentDidMount() {
-    const storedText = localStorage.getItem(KEY);
-    if (storedText) this.setState({
-      text: storedText
+    this.setState({
+      text: localStorage.getItem(TEXT_KEY) || this.state.text,
+      title: localStorage.getItem(TITLE_KEY) || this.state.title
     });
   },
 
-  update(text) {
+  updateTitle(evt) {
+    this.setState({
+      title: evt.target.value
+    });
+    localStorage.setItem(TITLE_KEY, evt.target.value);
+  },
+
+  updateText(text) {
     this.setState({
       text
     });
-    localStorage.setItem(KEY, text);
+    localStorage.setItem(TEXT_KEY, text);
   },
 
   render() {
@@ -139,9 +145,15 @@ const Main = createClass({
       className: "container"
     }, React.createElement(Stats, {
       text: this.state.text
+    }), React.createElement("input", {
+      className: "title",
+      type: "text",
+      value: this.state.title,
+      onChange: this.updateTitle,
+      placeholder: "title"
     }), React.createElement(Text, {
       value: this.state.text,
-      onChange: this.update
+      onChange: this.updateText
     })), React.createElement(Footer, null));
   }
 

@@ -14,22 +14,31 @@ const Footer = require('./footer/footer.jsx');
 const Text = require('./text/text.jsx');
 
 
-
-const KEY = 'word-counter';
+const TEXT_KEY = 'word-counter-text';
+const TITLE_KEY = 'word-counter-title';
 
 
 const Main = createClass({
 	displayName : 'Main',
 	getInitialState(){
-		return { text : DefaultText }
+		return {
+			title : 'Your next mirco-rpg',
+			text : DefaultText
+		}
 	},
 	componentDidMount(){
-		const storedText = localStorage.getItem(KEY);
-		if(storedText) this.setState({text : storedText});
+		this.setState({
+			text  : localStorage.getItem(TEXT_KEY) || this.state.text,
+			title : localStorage.getItem(TITLE_KEY) || this.state.title,
+		});
 	},
-	update(text){
+	updateTitle(evt){
+		this.setState({title : evt.target.value});
+		localStorage.setItem(TITLE_KEY, evt.target.value);
+	},
+	updateText(text){
 		this.setState({text});
-		localStorage.setItem(KEY, text);
+		localStorage.setItem(TEXT_KEY, text);
 	},
 	render(){
 		return <div className='Main'>
@@ -37,7 +46,13 @@ const Main = createClass({
 			<Favicon href={favicon} />
 			<div className='container'>
 				<Stats text={this.state.text} />
-				<Text value={this.state.text} onChange={this.update} />
+				<input
+					className='title'
+					type='text'
+					value={this.state.title}
+					onChange={this.updateTitle}
+					placeholder='title' />
+				<Text value={this.state.text} onChange={this.updateText} />
 			</div>
 
 			<Footer />
