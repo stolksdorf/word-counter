@@ -8,9 +8,13 @@ const DefaultText = require('./default.text.js');
 
 const {Title} = require('vitreum/headtags');
 
-const Stats = require('./stats/stats.jsx');
 const Footer = require('./footer/footer.jsx');
 const Text = require('./text/text.jsx');
+const DynamicFavicon = require('./dynamicFavicon.jsx');
+
+
+const wordCountRegex = new RegExp(`[0-9]+[0-9,\.]*|[&0-9a-zA-Z\xC0-\xFF]+[-']?[0-9a-zA-Z\xC0-\xFF]*`, 'g');
+const wordCount = (text)=>(text.match(wordCountRegex) || []).length;
 
 
 const TEXT_KEY = 'word-counter-text';
@@ -21,7 +25,7 @@ const Main = createClass({
 	displayName : 'Main',
 	getInitialState(){
 		return {
-			title : 'Your next mirco-rpg',
+			title : 'Your next micro-rpg',
 			text : DefaultText
 		}
 	},
@@ -40,18 +44,20 @@ const Main = createClass({
 		localStorage.setItem(TEXT_KEY, text);
 	},
 	render(){
+		const count = wordCount(this.state.text);
+
 		return <div className='Main'>
-			<Title>word.counter</Title>
-			<Stats text={this.state.text} />
+			<Title>{this.state.title || 'word.counter'}</Title>
+			<DynamicFavicon wordCount={count} />
 
 			<div className='container'>
-				<Stats text={this.state.text} />
 				<input
 					className='title'
 					type='text'
 					value={this.state.title}
 					onChange={this.updateTitle}
 					placeholder='title' />
+				<div className='wordCount'>{count}</div>
 				<Text value={this.state.text} onChange={this.updateText} />
 			</div>
 

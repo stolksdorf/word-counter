@@ -11,6 +11,10 @@ const Text = createClass({
 			onChange : ()=>{}
 		};
 	},
+	textarea : React.createRef(),
+	componentDidMount(){
+		this.textarea.current.focus();
+	},
 	update(evt){
 		this.props.onChange(evt.target.value);
 	},

@@ -1,17 +1,19 @@
 
+@width                       : 900px;
+@smallScreen : ~"(max-width  : 1075px)";
+@normalScreen : ~"(min-width : 1075px)";
 .Main{
 	background-color : @background;
 	.container{
 		position  : relative;
 		width     : 100%;
 		min-width : @minWidth;
-		max-width : 900px;
+		max-width : @width;
 		margin    : 0 auto;
 		padding   : 0em 1em;
 	}
 	input.title{
 		.fontCode();
-		//width : 85%;
 		width            : 100%;
 		padding          : 0.5em 0em;
 		background-color : transparent;
@@ -20,5 +22,22 @@
 		text-overflow    : ellipsis;
 		border           : none;
 		outline          : none;
+		@media @smallScreen{
+			width : 80%;
+		}
+	}
+	.wordCount{
+		.fontBold();
+		position  : fixed;
+		top       : 0px;
+		z-index   : 400;
+		font-size : 5em;
+		@media @normalScreen{
+			.transform(translateX(@width/2));
+			left : 50%;
+		}
+		@media @smallScreen{
+			right : 5px;
+		}
 	}
 }

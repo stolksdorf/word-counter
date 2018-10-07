@@ -35,8 +35,9 @@ const Footer = createClass({
 					<ul>
 						<li>Simple and clean</li>
 						<li>Smart word counting</li>
-						<li>Autosaves content to your browser</li>
 						<li>Tables and ASCII Art are not counted</li>
+						<li>Tab icon and title updates automatically</li>
+						<li>Autosaves content to your browser</li>
 					</ul>
 				</div>
 

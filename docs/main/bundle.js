@@ -44,131 +44,6 @@ But ASCII art or tables are fine
 
 is only 10 words`;
 },{}],12:[function(require,module,exports){
-require('./footer.less');
-
-const React = require('react');
-
-const createClass = require('create-react-class');
-
-const cx = require('classnames');
-
-const Footer = createClass({
-  displayName: 'Footer',
-
-  getDefaultProps() {
-    return {};
-  },
-
-  render() {
-    return React.createElement("footer", null, React.createElement("div", {
-      className: "bg"
-    }), React.createElement("div", {
-      className: "container"
-    }, React.createElement("div", {
-      className: "left"
-    }, React.createElement("h3", null, "About"), React.createElement("p", null, "This page built to be used with ", React.createElement("a", {
-      href: "https://itch.io/jam/micro-rpg-jam"
-    }, "Micro-RPG Jam"), ",  ", React.createElement("a", {
-      href: "https://200wordrpg.github.io/"
-    }, "200 Word RPG Challenge"), ", and other things like that."), React.createElement("p", null, React.createElement("a", {
-      target: "_blank",
-      href: "https://github.com/stolksdorf/word-counter",
-      className: "repo"
-    }, React.createElement("i", {
-      className: "fab fa-github"
-    }), "\xA0 Issue, bug, suggestion, wanna see the code? Click here to check out the repo.")), React.createElement("p", null, "made with ", React.createElement("i", {
-      className: "fa fa-heart"
-    }), ".")), React.createElement("div", {
-      className: "right"
-    }, React.createElement("h3", null, "Features"), React.createElement("ul", null, React.createElement("li", null, "Simple and clean"), React.createElement("li", null, "Smart word counting"), React.createElement("li", null, "Autosaves content to your browser"), React.createElement("li", null, "Tables and ASCII Art are not counted")))));
-  }
-
-});
-module.exports = Footer;
-},{"./footer.less":13,"classnames":undefined,"create-react-class":undefined,"react":undefined}],13:[function(require,module,exports){
-arguments[4][1][0].apply(exports,arguments)
-},{"dup":1}],"C:\\Dropbox\\root\\Programming\\Javascript\\word-counter\\client\\main\\main.jsx":[function(require,module,exports){
-require('../basestyle');
-
-require('./main.less');
-
-const React = require('react');
-
-const createClass = require('create-react-class');
-
-const cx = require('classnames');
-
-const DefaultText = require('./default.text.js');
-
-const {
-  Title
-} = require('vitreum/headtags');
-
-const Stats = require('./stats/stats.jsx');
-
-const Footer = require('./footer/footer.jsx');
-
-const Text = require('./text/text.jsx');
-
-const TEXT_KEY = 'word-counter-text';
-const TITLE_KEY = 'word-counter-title';
-const Main = createClass({
-  displayName: 'Main',
-
-  getInitialState() {
-    return {
-      title: 'Your next mirco-rpg',
-      text: DefaultText
-    };
-  },
-
-  componentDidMount() {
-    this.setState({
-      text: localStorage.getItem(TEXT_KEY) || this.state.text,
-      title: localStorage.getItem(TITLE_KEY) || this.state.title
-    });
-  },
-
-  updateTitle(evt) {
-    this.setState({
-      title: evt.target.value
-    });
-    localStorage.setItem(TITLE_KEY, evt.target.value);
-  },
-
-  updateText(text) {
-    this.setState({
-      text
-    });
-    localStorage.setItem(TEXT_KEY, text);
-  },
-
-  render() {
-    return React.createElement("div", {
-      className: "Main"
-    }, React.createElement(Title, null, "word.counter"), React.createElement(Stats, {
-      text: this.state.text
-    }), React.createElement("div", {
-      className: "container"
-    }, React.createElement(Stats, {
-      text: this.state.text
-    }), React.createElement("input", {
-      className: "title",
-      type: "text",
-      value: this.state.title,
-      onChange: this.updateTitle,
-      placeholder: "title"
-    }), React.createElement(Text, {
-      value: this.state.text,
-      onChange: this.updateText
-    })), React.createElement(Footer, null));
-  }
-
-});
-module.exports = Main;
-},{"../basestyle":5,"./default.text.js":11,"./footer/footer.jsx":12,"./main.less":14,"./stats/stats.jsx":17,"./text/text.jsx":19,"classnames":undefined,"create-react-class":undefined,"react":undefined,"vitreum/headtags":undefined}],14:[function(require,module,exports){
-arguments[4][1][0].apply(exports,arguments)
-},{"dup":1}],15:[function(require,module,exports){
 const React = require('react');
 
 const createClass = require('create-react-class');
@@ -214,10 +89,10 @@ const DynamicFavicon = createClass({
 
 });
 module.exports = DynamicFavicon;
-},{"./favicon-sort-alpha-asc.ico":16,"create-react-class":undefined,"react":undefined,"vitreum/headtags":undefined}],16:[function(require,module,exports){
-module.exports='/assets/main/stats/favicon-sort-alpha-asc.ico';
-},{}],17:[function(require,module,exports){
-require('./stats.less');
+},{"./favicon-sort-alpha-asc.ico":13,"create-react-class":undefined,"react":undefined,"vitreum/headtags":undefined}],13:[function(require,module,exports){
+module.exports='/assets/main/favicon-sort-alpha-asc.ico';
+},{}],14:[function(require,module,exports){
+require('./footer.less');
 
 const React = require('react');
 
@@ -225,37 +100,128 @@ const createClass = require('create-react-class');
 
 const cx = require('classnames');
 
+const Footer = createClass({
+  displayName: 'Footer',
+
+  getDefaultProps() {
+    return {};
+  },
+
+  render() {
+    return React.createElement("footer", null, React.createElement("div", {
+      className: "bg"
+    }), React.createElement("div", {
+      className: "container"
+    }, React.createElement("div", {
+      className: "left"
+    }, React.createElement("h3", null, "About"), React.createElement("p", null, "This page built to be used with ", React.createElement("a", {
+      href: "https://itch.io/jam/micro-rpg-jam"
+    }, "Micro-RPG Jam"), ",  ", React.createElement("a", {
+      href: "https://200wordrpg.github.io/"
+    }, "200 Word RPG Challenge"), ", and other things like that."), React.createElement("p", null, React.createElement("a", {
+      target: "_blank",
+      href: "https://github.com/stolksdorf/word-counter",
+      className: "repo"
+    }, React.createElement("i", {
+      className: "fab fa-github"
+    }), "\xA0 Issue, bug, suggestion, wanna see the code? Click here to check out the repo.")), React.createElement("p", null, "made with ", React.createElement("i", {
+      className: "fa fa-heart"
+    }), ".")), React.createElement("div", {
+      className: "right"
+    }, React.createElement("h3", null, "Features"), React.createElement("ul", null, React.createElement("li", null, "Simple and clean"), React.createElement("li", null, "Smart word counting"), React.createElement("li", null, "Tables and ASCII Art are not counted"), React.createElement("li", null, "Tab icon and title updates automatically"), React.createElement("li", null, "Autosaves content to your browser")))));
+  }
+
+});
+module.exports = Footer;
+},{"./footer.less":15,"classnames":undefined,"create-react-class":undefined,"react":undefined}],15:[function(require,module,exports){
+arguments[4][1][0].apply(exports,arguments)
+},{"dup":1}],"C:\\Dropbox\\root\\Programming\\Javascript\\word-counter\\client\\main\\main.jsx":[function(require,module,exports){
+require('../basestyle');
+
+require('./main.less');
+
+const React = require('react');
+
+const createClass = require('create-react-class');
+
+const cx = require('classnames');
+
+const DefaultText = require('./default.text.js');
+
+const {
+  Title
+} = require('vitreum/headtags');
+
+const Footer = require('./footer/footer.jsx');
+
+const Text = require('./text/text.jsx');
+
 const DynamicFavicon = require('./dynamicFavicon.jsx');
 
 const wordCountRegex = new RegExp(`[0-9]+[0-9,\.]*|[&0-9a-zA-Z\xC0-\xFF]+[-']?[0-9a-zA-Z\xC0-\xFF]*`, 'g');
 
 const wordCount = text => (text.match(wordCountRegex) || []).length;
 
-const Stats = createClass({
-  displayName: 'Stats',
+const TEXT_KEY = 'word-counter-text';
+const TITLE_KEY = 'word-counter-title';
+const Main = createClass({
+  displayName: 'Main',
 
-  getDefaultProps() {
+  getInitialState() {
     return {
-      text: ''
+      title: 'Your next micro-rpg',
+      text: DefaultText
     };
   },
 
+  componentDidMount() {
+    this.setState({
+      text: localStorage.getItem(TEXT_KEY) || this.state.text,
+      title: localStorage.getItem(TITLE_KEY) || this.state.title
+    });
+  },
+
+  updateTitle(evt) {
+    this.setState({
+      title: evt.target.value
+    });
+    localStorage.setItem(TITLE_KEY, evt.target.value);
+  },
+
+  updateText(text) {
+    this.setState({
+      text
+    });
+    localStorage.setItem(TEXT_KEY, text);
+  },
+
   render() {
-    const count = wordCount(this.props.text);
+    const count = wordCount(this.state.text);
     return React.createElement("div", {
-      className: "Stats"
-    }, React.createElement(DynamicFavicon, {
+      className: "Main"
+    }, React.createElement(Title, null, this.state.title || 'word.counter'), React.createElement(DynamicFavicon, {
       wordCount: count
     }), React.createElement("div", {
+      className: "container"
+    }, React.createElement("input", {
+      className: "title",
+      type: "text",
+      value: this.state.title,
+      onChange: this.updateTitle,
+      placeholder: "title"
+    }), React.createElement("div", {
       className: "wordCount"
-    }, count));
+    }, count), React.createElement(Text, {
+      value: this.state.text,
+      onChange: this.updateText
+    })), React.createElement(Footer, null));
   }
 
 });
-module.exports = Stats;
-},{"./dynamicFavicon.jsx":15,"./stats.less":18,"classnames":undefined,"create-react-class":undefined,"react":undefined}],18:[function(require,module,exports){
+module.exports = Main;
+},{"../basestyle":5,"./default.text.js":11,"./dynamicFavicon.jsx":12,"./footer/footer.jsx":14,"./main.less":16,"./text/text.jsx":17,"classnames":undefined,"create-react-class":undefined,"react":undefined,"vitreum/headtags":undefined}],16:[function(require,module,exports){
 arguments[4][1][0].apply(exports,arguments)
-},{"dup":1}],19:[function(require,module,exports){
+},{"dup":1}],17:[function(require,module,exports){
 require('./text.less');
 
 const React = require('react');
@@ -272,6 +238,12 @@ const Text = createClass({
       value: '',
       onChange: () => {}
     };
+  },
+
+  textarea: React.createRef(),
+
+  componentDidMount() {
+    this.textarea.current.focus();
   },
 
   update(evt) {
@@ -291,7 +263,7 @@ const Text = createClass({
 
 });
 module.exports = Text;
-},{"./text.less":20,"classnames":undefined,"create-react-class":undefined,"react":undefined}],20:[function(require,module,exports){
+},{"./text.less":18,"classnames":undefined,"create-react-class":undefined,"react":undefined}],18:[function(require,module,exports){
 arguments[4][1][0].apply(exports,arguments)
 },{"dup":1}]},{},[])("C:\\Dropbox\\root\\Programming\\Javascript\\word-counter\\client\\main\\main.jsx")
 });
